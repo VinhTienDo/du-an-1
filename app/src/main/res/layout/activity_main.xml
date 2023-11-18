@@ -12,10 +12,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include
-            layout="@layout/toolbar"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:background="#aaa"/>
 
         <FrameLayout
             android:id="@+id/flContent"
@@ -29,7 +30,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/white"
-        app:menu="@menu/menu2"
+        app:menu="@menu/menu"
 
         app:headerLayout="@layout/nav_header"/>
 <!--    test github1-->

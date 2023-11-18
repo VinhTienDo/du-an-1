@@ -4,15 +4,20 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/edMaLoaiHang"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mã Loại Hàng"
-        android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edMaLoaiHang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/background1"
+            android:hint=" Mã Loại Hàng"/>
+    </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,6 +31,20 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/background1"
             android:hint=" Tên Loại Hàng"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edSoLuongNhapLoaiHang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/background1"
+            android:hint=" Số Lượng nhập"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
