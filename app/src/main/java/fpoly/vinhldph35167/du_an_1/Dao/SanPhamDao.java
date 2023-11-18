@@ -26,27 +26,28 @@ public class SanPhamDao {
         }
         return list;
     }
-    public boolean themSanPhamMoi(String masp, String tensp, int gia, String maloai){
+    public boolean themSanPhamMoi(String masp, String tensp, int giasp,int soluongban, String maloai){
         SQLiteDatabase sqLiteDatabase = dbhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("masp", masp);
         contentValues.put("tensp", tensp);
-        contentValues.put("gia", gia);
+        contentValues.put("gia", giasp);
+        contentValues.put("soluongban", soluongban);
         contentValues.put("maloai", maloai);
-        long check = sqLiteDatabase.insert("SACH", null, contentValues);
+        long check = sqLiteDatabase.insert("SANPHAM", null, contentValues);
         if (check == -1)
             return false;
         return true;
     }
-    public boolean capNhatThongTinSanPham(String masp, String tensp, int gia, int soluongban, String maloai){
+    public boolean capNhatThongTinSanPham(String masp, String tensp, int giasp, int soluongban, String maloai){
         SQLiteDatabase sqLiteDatabase = dbhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("masp", masp);
         contentValues.put("tensp", tensp);
-        contentValues.put("gia", gia);
+        contentValues.put("gia", giasp);
         contentValues.put("soluongban", soluongban);
         contentValues.put("maloai", maloai);
-        long check = sqLiteDatabase.update("SACH", contentValues, "masp = ?", new String[]{String.valueOf(masp)});
+        long check = sqLiteDatabase.update("SANPHAM", contentValues, "masp = ?", new String[]{String.valueOf(masp)});
         if (check == -1)
             return false;
         return true;

@@ -72,6 +72,7 @@ public class fragment_san_pham extends Fragment {
         EditText edMasp = view.findViewById(R.id.edMaSP);
         EditText edTensp = view.findViewById(R.id.edTenSP);
         EditText edGia = view.findViewById(R.id.edGiaSP);
+        EditText edSoluongban = view.findViewById(R.id.edSoluonbanSP);
         Button btnSaveSp = view.findViewById(R.id.btnSaveSanpham);
         Button btnUpdateSp = view.findViewById(R.id.btnUpdateSanpham);
         Button btnCancelSp = view.findViewById(R.id.btnCancelSanpham);
@@ -90,10 +91,11 @@ public class fragment_san_pham extends Fragment {
             public void onClick(View v) {
                 String masp = edMasp.getText().toString();
                 String tensp = edTensp.getText().toString();
-                int gia = Integer.parseInt(edGia.getText().toString());
+                String giasp = edGia.getText().toString();
+                String soluongban = edSoluongban.getText().toString();
                 HashMap<String, Object> hs = (HashMap<String, Object>) spnLoaiHang.getSelectedItem();
                 String maloai = (String) hs.get("maloai");
-                boolean check = sanPhamDao.themSanPhamMoi(masp, tensp, gia, maloai);
+                boolean check = sanPhamDao.themSanPhamMoi(masp, tensp, Integer.parseInt(giasp), Integer.parseInt(soluongban), maloai);
                 if (check){
                     Toast.makeText(getContext(), "Thêm sản phẩm thành công", Toast.LENGTH_SHORT).show();
                     loadData();
