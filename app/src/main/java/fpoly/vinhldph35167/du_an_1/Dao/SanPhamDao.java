@@ -17,7 +17,7 @@ public class SanPhamDao {
     public ArrayList<SanPham> getDSSanPham(){
         ArrayList<SanPham> list = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = dbhelper.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT sp.masp, sp.tensp, sp.gia, sp.soluongban, sp.maloai, lo.tenloai FROM SANPHAM sp, LOAIHANG lo WHERE sp.maloai = lo.maloai", null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT sp.masp, sp.tensp, sp.giasp, sp.soluongban, lo.tenloai FROM SANPHAM sp, LOAIHANG lo WHERE lo.maloai", null);
         if (cursor.getCount() != 0){
             cursor.moveToFirst();
             do {
