@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class Dbhelper extends SQLiteOpenHelper {
-    public Dbhelper(Context context){super(context, "DANGKY", null, 1);}
+    public Dbhelper(Context context){super(context, "DANGKY", null, 2);}
     @Override
     public void onCreate(SQLiteDatabase db) {
         String dbNhanVien = "CREATE TABLE NHANVIEN(manv text primary key, hoten text, giotangca integer, namsinh text, gioditre integer, tongthunhap integer, sodienthoai integer, songaydilam integer, password text)";
@@ -25,6 +25,7 @@ public class Dbhelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion != newVersion){
+            db.execSQL("DROP TABLE IF EXISTS SANPHAM");
             db.execSQL("DROP TABLE IF EXISTS NHANVIEN");
             db.execSQL("DROP TABLE IF EXISTS LOAIHANG");
             onCreate(db);
