@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.fragment_san_pham">
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:id="@+id/edSearch"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleSanPham"
+
+    <ListView
+        android:id="@+id/lvSanPham"
         android:layout_width="match_parent"
-        android:layout_below="@+id/edSearch"
         android:layout_height="match_parent"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatAdd"
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
         android:src="@drawable/ic_menu_book"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"/>
+        app:layout_anchorGravity="bottom|right|end"/>
 
-</RelativeLayout>
+</FrameLayout>

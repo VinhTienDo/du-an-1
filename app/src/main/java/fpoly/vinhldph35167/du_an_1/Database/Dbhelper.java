@@ -4,33 +4,58 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.Nullable;
+
 public class Dbhelper extends SQLiteOpenHelper {
-    public Dbhelper(Context context){super(context, "DANGKY", null, 3);}
+    public static final String DB_NAME = "MYSTORE";
+    public static final int DB_VERSION = 1;
+
+    public Dbhelper(@Nullable Context context) {
+        super(context, DB_NAME, null, DB_VERSION);
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String dbNhanVien = "CREATE TABLE NHANVIEN(manv text primary key, hoten text, giotangca integer, namsinh text, gioditre integer, tongthunhap integer, sodienthoai integer, songaydilam integer, password text)";
-        db.execSQL(dbNhanVien);
+        String createTableNhanVien = "CREATE TABLE NHANVIEN(" +
+                "manv text primary key, "+
+                "hoten text NOT NULL, "+
+                "giotangca integer NOT NULL, "+
+                "namsinh text NOT NULL, "+
+                "gioditre integer NOT NULL, "+
+                "tongthunhap integer NOT NULL, "+
+                "sodienthoai integer NOT NULL, "+
+                "songaydilam integer NOT NULL, "+
+                "password text NOT NULL)";
+        db.execSQL(createTableNhanVien);
 
-        String dbLoaiHang = "CREATE TABLE LOAIHANG(maloai text primary key, tenloai text, soluongnhap integer, soluongton integer)";
-        db.execSQL(dbLoaiHang);
+        String createTableLoaiHang = "CREATE TABLE LOAIHANG(" +
+                "maloai INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                "tenloai text NOT NULL, "+
+                "soluongnhap integer NOT NULL, "+
+                "soluongton integer NOT NULL)";
+        db.execSQL(createTableLoaiHang);
 
-        String dbSanPham = "CREATE TABLE SANPHAM(masp text primary key, tensp text, giasp integer, soluongban integer references LOAIHANG(maloai))";
-        db.execSQL(dbSanPham);
+        String createTableSanPham = "CREATE TABLE SANPHAM(" +
+                "masp INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                "tensp text NOT NULL, "+
+                "giasp integer NOT NULL, "+
+                "maloai integer references LOAIHANG(maloai),"+
+                "soluongban integer NOT NULL)";
+        db.execSQL(createTableSanPham);
 
 
         db.execSQL("INSERT INTO NHANVIEN VALUES('nv1', 'Lê Đoàn Vinh', 0, '21/11/2004', 0, 4000000, 0327385335, 30, '123')");
-        db.execSQL("INSERT INTO LOAIHANG VALUES('l1', 'Bánh', 300, 50)");
-        db.execSQL("INSERT INTO SANPHAM VALUES('sp1', 'Bánh Solite', 20000, 50)");
+        db.execSQL("INSERT INTO LOAIHANG VALUES(1, 'Bánh', 300, 50)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(1, 'Bánh Solite', 20000, 1, 50)");
 
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion != newVersion){
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        if (i != i1){
+            db.execSQL("DROP TABLE IF EXISTS NHANVIEN");
             db.execSQL("DROP TABLE IF EXISTS LOAIHANG");
             db.execSQL("DROP TABLE IF EXISTS SANPHAM");
-            db.execSQL("DROP TABLE IF EXISTS NHANVIEN");
-
             onCreate(db);
         }
     }

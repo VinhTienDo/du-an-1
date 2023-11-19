@@ -7,18 +7,23 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import fpoly.vinhldph35167.du_an_1.Dao.NhanVienDao;
 
 public class Login extends AppCompatActivity {
+    EditText edUserName, edPassword;
+    Button btnLogin, btnRegister;
+    CheckBox chkRememberPass;
+    NhanVienDao nvdao;
+    String strUser, strPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         EditText edUser = findViewById(R.id.edUserName);
         EditText edPass = findViewById(R.id.edPassword);
         Button btnLogin = findViewById(R.id.btnLogin);
@@ -43,6 +48,12 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+                btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this, Register.class));
+            }
+        });
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,4 +61,6 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-}
+
+    }
+

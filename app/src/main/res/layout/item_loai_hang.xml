@@ -31,6 +31,14 @@
                 android:layout_margin="10dp"
                 android:layout_weight="10">
                 <TextView
+                    android:id="@+id/tvMaLoaiHang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="Mã loại hàng:"/>
+                <TextView
                     android:id="@+id/tvTenLoaiHang"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -38,14 +46,7 @@
                     android:textStyle="bold"
                     android:textSize="20dp"
                     android:text="Tên loại hàng:"/>
-                <TextView
-                    android:id="@+id/tvSoLuongTon"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="Số lượng tồn:"/>
+
                 <TextView
                     android:id="@+id/tvSoLuongNhap"
                     android:layout_width="match_parent"
@@ -54,6 +55,14 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:text="Số lượng nhập:"/>
+                <TextView
+                    android:id="@+id/tvSoLuongTon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="Số lượng tồn:"/>
 
             </LinearLayout>
             <ImageView

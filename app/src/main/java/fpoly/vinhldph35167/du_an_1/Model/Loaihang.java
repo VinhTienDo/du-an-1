@@ -1,16 +1,20 @@
 package fpoly.vinhldph35167.du_an_1.Model;
 
 public class Loaihang {
-    private String maloai;
+    private int maloai;
     private String tenloai;
     private int soluongnhap;
     private int soluongton;
 
-    public String getMaloai() {
+    public Loaihang() {
+
+    }
+
+    public int getMaloai() {
         return maloai;
     }
 
-    public void setMaloai(String maloai) {
+    public void setMaloai(int maloai) {
         this.maloai = maloai;
     }
 
@@ -38,16 +42,10 @@ public class Loaihang {
         this.soluongton = soluongton;
     }
 
-    public Loaihang(String maloai, String tenloai, int soluongnhap, int soluongton) {
+    public Loaihang(int maloai, String tenloai, int soluongnhap, int soluongton) {
         this.maloai = maloai;
         this.tenloai = tenloai;
         this.soluongnhap = soluongnhap;
         this.soluongton = soluongton;
-    }
-
-    public Loaihang(String maloai, String tenloai, int soluongnhap) {
-        this.maloai = maloai;
-        this.tenloai = tenloai;
-        this.soluongnhap = soluongnhap;
     }
 }
