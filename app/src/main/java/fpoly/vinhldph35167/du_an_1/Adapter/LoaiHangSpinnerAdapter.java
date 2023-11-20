@@ -18,7 +18,7 @@ import fpoly.vinhldph35167.du_an_1.R;
 public class LoaiHangSpinnerAdapter extends ArrayAdapter<Loaihang> {
     private Context context;
     ArrayList<Loaihang> list;
-    TextView tvMaLoaiHang, tvTenLoaihang;
+    TextView tvMaLoaiHang, tvTenLoaihang, tvSoluongton, tvSoluongnhap;
 
     public LoaiHangSpinnerAdapter(@NonNull Context context, ArrayList<Loaihang> list){
         super(context, 0, list);
@@ -39,8 +39,10 @@ public class LoaiHangSpinnerAdapter extends ArrayAdapter<Loaihang> {
             tvMaLoaiHang= v.findViewById(R.id.tvMaLoaihangSp);
             tvMaLoaiHang.setText(item.getMaloai() + ". ");
 
-            tvTenLoaihang = v.findViewById(R.id.tvtensanphamSp);
+            tvTenLoaihang = v.findViewById(R.id.tvTenLoaiHangsp);
             tvTenLoaihang.setText(item.getTenloai());
+
+
 
         }
         return v;

@@ -19,13 +19,13 @@
         android:id="@+id/tvSoLuongTonSp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="9 bịch"
+        android:text="9"
         android:textSize="20dp"/>
     <TextView
         android:id="@+id/tvSoLuongNhapSp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="20 bịch"
+        android:text="20"
         android:textSize="20dp"/>
 
 
