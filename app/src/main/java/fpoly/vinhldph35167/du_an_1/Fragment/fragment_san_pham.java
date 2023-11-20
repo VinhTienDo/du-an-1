@@ -263,7 +263,7 @@ public class fragment_san_pham extends Fragment {
         lvSanPham.setAdapter(adapter);
 
     }
-    // Sắp xếp sách theo tên tăng dần
+    // Sắp xếp sp theo tên tăng dần
     private void sortBooksByNameAscending() {
         Collections.sort(list, new Comparator<SanPham>() {
             @Override
@@ -274,7 +274,7 @@ public class fragment_san_pham extends Fragment {
         });
         adapter.notifyDataSetChanged();
     }
-    // Sắp xếp sách theo tên giảm dần
+    // Sắp xếp sp theo tên giảm dần
     private void sortBooksByNameDescending() {
         Collections.sort(list, new Comparator<SanPham>() {
             @Override
