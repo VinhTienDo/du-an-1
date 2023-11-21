@@ -45,7 +45,7 @@
         android:id="@+id/chkRememberPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quên mật khẩu"
+        android:text="Remember me"
         android:layout_marginBottom="20dp"/>
     <LinearLayout
         android:layout_width="match_parent"
