@@ -50,13 +50,13 @@ return db.update("KHACHHANG",values, "makh=?", new String[]{String.valueOf(obj.g
         return list.get(0);
     }
     @SuppressLint("Range")
-    private List<KhachHang> getData(String sql, String id, String...selectionArgs) {
+    private List<KhachHang> getData(String sql, String...selectionArgs) {
         List<KhachHang> list = new ArrayList<>();
         Cursor cursor= db.rawQuery(sql, selectionArgs);
-        while ((cursor.moveToNext())){
+        while (cursor.moveToNext()){
             KhachHang obj = new KhachHang();
             obj.setMakh(Integer.parseInt(cursor.getString(cursor.getColumnIndex("makh"))));
-            obj.setHoten(cursor.getString(cursor.getColumnIndex("tenKh")));
+            obj.setHoten(cursor.getString(cursor.getColumnIndex("hoten")));
             obj.setNamsinh(cursor.getString(cursor.getColumnIndex("namsinh")));
             obj.setSodienthoai(Integer.parseInt(cursor.getString(cursor.getColumnIndex("sodienthoai"))));
             list.add(obj);

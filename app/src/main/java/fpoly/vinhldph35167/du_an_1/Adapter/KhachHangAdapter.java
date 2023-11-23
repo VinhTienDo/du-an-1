@@ -53,12 +53,13 @@ public class KhachHangAdapter extends ArrayAdapter<KhachHang> {
             tvnamsinh.setText("Năm Sinh:" + item.getNamsinh());
             tvsdt = v.findViewById(R.id.tvSdtKH);
             tvsdt.setText("Số điện thoại:" + item.getSodienthoai());
+
             imgDelKH = v.findViewById(R.id.imgDeleteKH);
         }
         imgDelKH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                frg.xoa(String.valueOf(item.getMakh()));
             }
         });
     return v;

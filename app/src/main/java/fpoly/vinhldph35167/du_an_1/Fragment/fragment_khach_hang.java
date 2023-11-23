@@ -2,6 +2,7 @@ package fpoly.vinhldph35167.du_an_1.Fragment;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
@@ -10,10 +11,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -52,17 +55,28 @@ KhachHang item;
         lvKhachHang = v.findViewById(R.id.lvKhachHang);
         fab = v.findViewById(R.id.fab);
         dao = new KhachHangDao(getActivity());
-//        capNhatLv();
+        capnhatKH();
 
-
-
-return v;
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog(getActivity(), 0);
+            }
+        });
+        lvKhachHang.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                item = list.get(position);
+                openDialog(getActivity(), 1);
+                return false;
+            }
+        });
+        return v;
     }
     void capnhatKH(){
-//        list = (ArrayList<Loaihang>) dao.getAll();
-//        adapter = new LoaiHangAdapter(getActivity(), this, list);
-//        lvKhachHang.setAdapter((ListAdapter) adapter);
-        list=(ArrayList<KhachHang>) dao.getAll();
+        list = (ArrayList<KhachHang>) dao.getAll();
+        adapter = new KhachHangAdapter(getActivity(), this, list);
+        lvKhachHang.setAdapter((ListAdapter) adapter);
 
     }
     public void xoa(final String Id){
@@ -75,7 +89,78 @@ return v;
         public void onClick(DialogInterface dialog, int which) {
             dao.delete(Id);
             capnhatKH();
+            dialog.cancel();
+            Toast.makeText(getContext(), "Đã xoá", Toast.LENGTH_SHORT).show();
         }
-    })
+    });
+    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            dialog.cancel();
+            Toast.makeText(getContext(), "Không xoá", Toast.LENGTH_SHORT).show();
+        }
+    });
+    AlertDialog alert = builder.create();
+    builder.show();
+    }
+    protected void openDialog(final Context context, final int type){
+        dialog = new Dialog(context);
+        dialog.setContentView(R.layout.dialog_khach_hang);
+        edMaKH = dialog.findViewById(R.id.edMaKH);
+        edTenKH = dialog.findViewById(R.id.edTenKH);
+        edSdtKH = dialog.findViewById(R.id.edSdtKH);
+        edNamSinhKH = dialog.findViewById(R.id.edNamSinhKH);
+        btnCancelKH = dialog.findViewById(R.id.btnCancelKH);
+        btnSaveKH = dialog.findViewById(R.id.btnSaveKh);
+
+        edMaKH.setEnabled(false);
+        if (type != 0){
+            edMaKH.setText(String.valueOf(item.getMakh()));
+            edTenKH.setText(item.getHoten());
+            edNamSinhKH.setText(item.getNamsinh());
+            edSdtKH.setText(String.valueOf(item.getSodienthoai()));
+        }
+        btnCancelKH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        btnSaveKH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                item = new KhachHang();
+                item.setHoten(edTenKH.getText().toString());
+                item.setNamsinh(edNamSinhKH.getText().toString());
+                item.setSodienthoai(Integer.parseInt(edSdtKH.getText().toString()));
+                if (validate()>0){
+                    if (type == 0){
+                        if (dao.insert(item)>0){
+                            Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(context, "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                    }else {
+                        item.setMakh(Integer.parseInt(edMaKH.getText().toString()));
+                        if (dao.update(item)>0){
+                            Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(context, "Sửa thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    capnhatKH();
+                    dialog.dismiss();
+                }
+            }
+        });
+        dialog.show();
+    }
+    public int validate(){
+        int check = 1;
+        if (edTenKH.getText().length() == 0 || edSdtKH.getText().length() == 0 || edNamSinhKH.getText().length() ==0){
+            Toast.makeText(getContext(), "Bạn phải nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            check = -1;
+        }
+        return check;
     }
 }

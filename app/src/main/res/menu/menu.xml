@@ -4,6 +4,9 @@
         <item android:id="@+id/nav_NhanVien"
             android:icon="@drawable/ic_home"
             android:title="Quản lý Nhân Viên"/>
+        <item android:id="@+id/nav_KhachHang"
+            android:icon="@drawable/ic_home"
+            android:title="Quản lý Khách Hàng"/>
         <item android:id="@+id/nav_LoaiHang"
             android:icon="@drawable/ic_catebook"
             android:title="Quản lý Loại Hàng"/>

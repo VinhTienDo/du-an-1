@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new fragment_san_pham();
                 } else if (item.getItemId() == R.id.nav_NhanVien) {
                     fragment = new fragment_nhan_vien();
+                } else if (item.getItemId() == R.id.nav_KhachHang) {
+                    fragment = new fragment_khach_hang();
                 } else if (item.getItemId() == R.id.nav_LoaiHang) {
                     fragment = new fragment_loai_hang();
                 }else if (item.getItemId() == R.id.sub_DoanhThu){
