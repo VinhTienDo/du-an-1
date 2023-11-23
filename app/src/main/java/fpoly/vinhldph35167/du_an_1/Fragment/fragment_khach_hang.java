@@ -84,7 +84,7 @@ KhachHang item;
         builder.setTitle("Delete");
         builder.setTitle("Bạn có muốn xoá không?");
         builder.setCancelable(true);
-    builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which) {
             dao.delete(Id);
