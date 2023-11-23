@@ -43,10 +43,19 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "soluongban integer NOT NULL)";
         db.execSQL(createTableSanPham);
 
+String createTableKhachHang = "CREATE TABLE KHACHHANG(" +
+        "makh text PRIMARY KEY AUTOINCREMENT, "+
+        "hoten text NOT NULL, "+
+        "namsinh text NOT NULL, "+
+        "sodienthoai integer NOT NULL )";
+db.execSQL(createTableKhachHang);
+
+
 
         db.execSQL("INSERT INTO NHANVIEN VALUES('nv1', 'Lê Đoàn Vinh', 0, '21/11/2004', 0, 4000000, 0327385335, 30, '123')");
         db.execSQL("INSERT INTO LOAIHANG VALUES(1, 'Bánh', 300, 50)");
         db.execSQL("INSERT INTO SANPHAM VALUES(1, 'Bánh Solite', 20000, 1, 50)");
+        db.execSQL("INSERT INTO KHACHHANG VALUES(1, 'Nguyễn Văn A','1999',0678935789)");
 
     }
 

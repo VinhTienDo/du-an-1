@@ -31,6 +31,16 @@
                 android:layout_margin="10dp"
                 android:layout_weight="10">
                 <TextView
+                    android:id="@+id/tvMaKH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="Mã khách hàng:"/>
+
+
+                <TextView
                     android:id="@+id/tvTenKH"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -39,15 +49,7 @@
                     android:textSize="20dp"
                     android:text="Tên khách hàng:"/>
                 <TextView
-                    android:id="@+id/tvSdtNV"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="Số điện thoại:"/>
-                <TextView
-                    android:id="@+id/tvNamSinhNV"
+                    android:id="@+id/tvNamsinhKH"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
@@ -55,11 +57,20 @@
                     android:textStyle="bold"
                     android:text="Năm sinh: "/>
 
+                <TextView
+                    android:id="@+id/tvSdtKH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="Số điện thoại:"/>
+
 
 
             </LinearLayout>
             <ImageView
-                android:id="@+id/imgDeleteLS"
+                android:id="@+id/imgDeleteKH"
                 android:layout_width="0dp"
                 android:layout_height="65dp"
                 android:layout_weight="1"
