@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class Dbhelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "MYSTORE";
-    public static final int DB_VERSION = 3;
+    public static final int DB_VERSION = 5;
 
     public Dbhelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -40,7 +40,7 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "tensp text NOT NULL, "+
                 "giasp integer NOT NULL, "+
                 "maloai integer references LOAIHANG(maloai),"+
-                "soluongban integer NOT NULL)";
+                "soluongban integer NOT NULL) ";
         db.execSQL(createTableSanPham);
 
 String createTableKhachHang = "CREATE TABLE KHACHHANG(" +
@@ -54,7 +54,7 @@ db.execSQL(createTableKhachHang);
 
         db.execSQL("INSERT INTO NHANVIEN VALUES('nv1', 'Lê Đoàn Vinh', 0, '21/11/2004', 0, 4000000, 0327385335, 30, '123')");
         db.execSQL("INSERT INTO LOAIHANG VALUES(1, 'Bánh', 300, 50)");
-        db.execSQL("INSERT INTO SANPHAM VALUES(1, 'Bánh Solite', 20000, 1, 50)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(1, 'Solite',25000, 1, 10)");
         db.execSQL("INSERT INTO KHACHHANG VALUES(1, 'Nguyễn Văn A','1999',0678935789)");
 
     }

@@ -3,6 +3,7 @@ package fpoly.vinhldph35167.du_an_1.Adapter;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +68,12 @@ public class SanPhamAdapter extends ArrayAdapter<SanPham> {
 
             imgDel = v.findViewById(R.id.imgDeleteSp);
         }
+        imgDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragment.xoa(String.valueOf(item.getMasp()));
+            }
+        });
 
         return v;
     }

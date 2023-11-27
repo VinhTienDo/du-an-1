@@ -1,20 +1,34 @@
 package fpoly.vinhldph35167.du_an_1.Fragment;
 
+import static android.app.Activity.RESULT_OK;
 import static java.lang.Integer.parseInt;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,6 +39,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import androidx.appcompat.widget.SearchView;
@@ -35,6 +50,8 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -58,6 +75,11 @@ public class fragment_san_pham extends Fragment {
     SanPhamAdapter adapter;
     SanPham item;
     List<SanPham> list;
+    Uri selectedImageUri;
+
+    public int PICK_IMAGE_REQUEST = 1;
+    int REQUEST_CODE = 2;
+    ImageButton imageView;
 
     FloatingActionButton fab;
     Dialog dialog;
@@ -124,6 +146,14 @@ public class fragment_san_pham extends Fragment {
                 openDialog(getActivity(), 0, item);
             }
         });
+        lvSanPham.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                item = list.get(position);
+                openDialog(getActivity(), 1, item);
+                return false;
+            }
+        });
 
         return v;
     }
@@ -171,6 +201,7 @@ public class fragment_san_pham extends Fragment {
         btnSave = dialog.findViewById(R.id.btnSaveSanpham);
         btnCancel = dialog.findViewById(R.id.btnCancelSanpham);
 
+
         listLoaiHang = new ArrayList<Loaihang>();
         loaiHangDao = new LoaiHangDao(context);
         listLoaiHang = (ArrayList<Loaihang>) loaiHangDao.getAll();
@@ -189,6 +220,9 @@ public class fragment_san_pham extends Fragment {
 
             }
         });
+
+
+
 //        kiem tra type insert hay update
         edMasp.setEnabled(false);
         if (type != 0) {
@@ -218,6 +252,8 @@ public class fragment_san_pham extends Fragment {
                 item.setGiasp(parseInt(edGiasp.getText().toString(), 0));
                 item.setMaloai(maloaiHang);
                 item.setSoluongban(parseInt(edSoluongban.getText().toString(), 0));
+
+
                 if (validate() > 0) {
                     if (type == 0) {
                         if (sanPhamDao.insert(item) > 0) {
@@ -238,6 +274,7 @@ public class fragment_san_pham extends Fragment {
                 }
             }
         });
+
         dialog.show();
 
 
@@ -250,6 +287,9 @@ public class fragment_san_pham extends Fragment {
        }
        return check;
    }
+
+
+
     public static int parseInt(String string, int defaultValue) {
         try {
             return Integer.parseInt(string);
@@ -301,4 +341,5 @@ public class fragment_san_pham extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

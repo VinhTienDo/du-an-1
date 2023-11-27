@@ -24,6 +24,7 @@ public class SanPhamDao {
         values.put("giasp", obj.getGiasp());
         values.put("maloai", obj.getMaloai());
         values.put("soluongban", obj.getSoluongban());
+
         return db.insert("SANPHAM", null, values);
     }
     public long update(SanPham obj){
@@ -32,6 +33,7 @@ public class SanPhamDao {
         values.put("giasp", obj.getGiasp());
         values.put("maloai", obj.getMaloai());
         values.put("soluongban", obj.getSoluongban());
+
         return db.update("SANPHAM", values, "masp=?", new String[]{String.valueOf(obj.getMasp())});
     }
     public long delete(String id){
@@ -57,6 +59,7 @@ public class SanPhamDao {
             obj.setGiasp(Integer.parseInt(cursor.getString(cursor.getColumnIndex("giasp"))));
             obj.setMaloai(Integer.parseInt(cursor.getString(cursor.getColumnIndex("maloai"))));
             obj.setSoluongban(Integer.parseInt(cursor.getString(cursor.getColumnIndex("soluongban"))));
+
             list.add(obj);
         }
         return list;

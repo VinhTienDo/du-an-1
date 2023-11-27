@@ -8,8 +8,11 @@ public class SanPham {
     private int soluongban;
 
 
+
     public SanPham() {
     }
+
+
 
 
     public SanPham(int masp, String tensp, int giasp, int maloai, int soluongban) {
