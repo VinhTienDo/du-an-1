@@ -14,11 +14,6 @@ import android.widget.Toast;
 import fpoly.vinhldph35167.du_an_1.Dao.NhanVienDao;
 
 public class Login extends AppCompatActivity {
-    EditText edUserName, edPassword;
-    Button btnLogin, btnRegister;
-    CheckBox chkRememberPass;
-    NhanVienDao nvdao;
-    String strUser, strPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +49,7 @@ public class Login extends AppCompatActivity {
                 startActivity(new Intent(Login.this, Register.class));
             }
         });
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Login.this, Register.class));
-            }
-        });
+
     }
 
     }

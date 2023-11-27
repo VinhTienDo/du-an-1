@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class Dbhelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "MYSTORE";
-    public static final int DB_VERSION = 5;
+    public static final int DB_VERSION = 9;
 
     public Dbhelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -16,6 +16,7 @@ public class Dbhelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         String createTableNhanVien = "CREATE TABLE NHANVIEN(" +
                 "manv text primary key, "+
                 "hoten text NOT NULL, "+
@@ -25,7 +26,7 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "tongthunhap integer NOT NULL, "+
                 "sodienthoai integer NOT NULL, "+
                 "songaydilam integer NOT NULL, "+
-                "password text NOT NULL)";
+                "password text not null)";
         db.execSQL(createTableNhanVien);
 
         String createTableLoaiHang = "CREATE TABLE LOAIHANG(" +
@@ -62,6 +63,7 @@ db.execSQL(createTableKhachHang);
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         if (i != i1){
+
             db.execSQL("DROP TABLE IF EXISTS NHANVIEN");
             db.execSQL("DROP TABLE IF EXISTS LOAIHANG");
             db.execSQL("DROP TABLE IF EXISTS SANPHAM");
