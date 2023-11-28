@@ -61,7 +61,7 @@ public class ManHinhKhachHangDemo extends AppCompatActivity {
                     fragment = new frg_gio_hang();
                     Toast.makeText(getApplicationContext(), "Giỏ hàng", Toast.LENGTH_SHORT).show();
                 } else if (item.getItemId() == R.id.nav_DonHang) {
-                    fragment = new fragment_don_hang();
+                     fragment = new fragment_don_hang();
                 } else if (item.getItemId() == R.id.sub_Top) {
                     fragment = new fragment_top();
                 } else if (item.getItemId() == R.id.sub_Pass) {
