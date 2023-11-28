@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/Xem_SanPham"
+        android:title="Xem danh sách sản phẩm "
+        />
+
+    <item android:id="@+id/Xem_GioHang"
+        android:title="Xem giỏ hàng "
+        />
+
+    <item android:id="@+id/Xem_DonHang"
+        android:title="Xem đơn hàng "
+        />
+    <item android:title="Thống kê">
+        <menu>
+            <item android:id="@+id/Top10_KH"
+                android:title="Top 10 sản phẩm được mua nhiều nhất"
+                />
+        </menu>
+    </item>
+    <item android:title="Tài khoản">
+        <menu>
+            <item android:id="@+id/DoiMk_KH"
+                android:title="Đổi mật khẩu "
+                />
+            <item android:id="@+id/LogOut_KH"
+                android:title="Đăng xuất"
+                />
+        </menu>
+    </item>
+</menu>
