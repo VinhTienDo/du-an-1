@@ -5,12 +5,28 @@ public class KhachHang {
     private String hoten;
     private String namsinh;
     private int sodienthoai;
+    private String password;
 
-    public KhachHang(int makh, String hoten, String namsinh, int sodienthoai) {
+    public KhachHang(int makh, String hoten, String password) {
+        this.makh = makh;
+        this.hoten = hoten;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public KhachHang(int makh, String hoten, String namsinh, int sodienthoai, String password) {
         this.makh = makh;
         this.hoten = hoten;
         this.namsinh = namsinh;
         this.sodienthoai = sodienthoai;
+        this.password = password;
     }
 
     public KhachHang() {

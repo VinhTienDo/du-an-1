@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.sub_Top) {
                     fragment = new fragment_top();
                 } else if (item.getItemId() == R.id.sub_Logout) {
-                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    Intent intent = new Intent(MainActivity.this, ChucVu.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }

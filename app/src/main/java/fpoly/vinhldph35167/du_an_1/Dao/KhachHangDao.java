@@ -17,10 +17,12 @@ import fpoly.vinhldph35167.du_an_1.Model.Loaihang;
 
 public class KhachHangDao {
     private SQLiteDatabase db;
+
     public KhachHangDao(Context context){
         Dbhelper dbhelper = new Dbhelper(context);
         db = dbhelper.getWritableDatabase();
     }
+
 
     public long insert(KhachHang obj){
         ContentValues values = new ContentValues();

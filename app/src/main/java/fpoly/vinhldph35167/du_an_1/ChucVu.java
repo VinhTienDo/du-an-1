@@ -27,7 +27,7 @@ public class ChucVu extends AppCompatActivity {
         btnKhachHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChucVu.this, ManHinhKhachHangDemo.class));
+                startActivity(new Intent(ChucVu.this, LoginKhachHang.class));
             }
         });
     }

@@ -54,20 +54,20 @@ public class ManHinhKhachHangDemo extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
-                if (item.getItemId() == R.id.recycler_XemSP) {
+                if (item.getItemId() == R.id.Xem_SanPham) {
                     fragment = new frg_xem_sp();
                     Toast.makeText(getApplicationContext(), "Xem danh sách sản phẩm", Toast.LENGTH_SHORT).show();
-                } else if (item.getItemId() == R.id.recycler_XemGH) {
+                } else if (item.getItemId() == R.id.Xem_GioHang) {
                     fragment = new frg_gio_hang();
                     Toast.makeText(getApplicationContext(), "Giỏ hàng", Toast.LENGTH_SHORT).show();
-                } else if (item.getItemId() == R.id.nav_DonHang) {
+                } else if (item.getItemId() == R.id.Xem_DonHang) {
                      fragment = new fragment_don_hang();
-                } else if (item.getItemId() == R.id.sub_Top) {
+                } else if (item.getItemId() == R.id.Top10_KH) {
                     fragment = new fragment_top();
-                } else if (item.getItemId() == R.id.sub_Pass) {
+                } else if (item.getItemId() == R.id.DoiMk_KH) {
                     fragment = new fragment_change_pass();
-                } else if (item.getItemId() == R.id.sub_Logout) {
-                    Intent intent = new Intent(ManHinhKhachHangDemo.this, Login.class);
+                } else if (item.getItemId() == R.id.LogOut_KH) {
+                    Intent intent = new Intent(ManHinhKhachHangDemo.this, ChucVu.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }
