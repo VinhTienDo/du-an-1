@@ -37,6 +37,7 @@ public class LoginKhachHang extends AppCompatActivity {
                     editor.commit();
 
                     startActivity(new Intent(LoginKhachHang.this, ManHinhKhachHangDemo.class));
+                    Toast.makeText(LoginKhachHang.this, "Bạn đã đăng nhập thành công", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(LoginKhachHang.this, "Username hoặc passwoed không đúng", Toast.LENGTH_SHORT).show();
                 }
