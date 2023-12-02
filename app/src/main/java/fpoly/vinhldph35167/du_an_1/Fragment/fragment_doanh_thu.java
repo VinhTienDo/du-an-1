@@ -13,100 +13,91 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
-import fpoly.vinhldph35167.du_an_1.Dao.DoanhThuDao;
+import fpoly.vinhldph35167.du_an_1.Dao.DonHangDao;
+import fpoly.vinhldph35167.du_an_1.Dao.ThongKeDao;
 import fpoly.vinhldph35167.du_an_1.R;
 
 
 public class fragment_doanh_thu extends Fragment {
+    Button btnDoanhThu;
 
-    @Nullable
+    ImageView btnTuNgay, btnDenNgay;
+    EditText edTuNgay, edDenNgay;
+    TextView tvDoanhThu;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+    int mYear,mMonth,mDay;
+
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,
-                            @Nullable Bundle savedInstanceState) {
+    public View onCreateView( LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_doanh_thu, container, false);
+        View v = inflater.inflate(R.layout.fragment_doanh_thu, container, false);
 
-        EditText edtStart = view.findViewById(R.id.edTuNgay);
-        EditText edtEnd = view.findViewById(R.id.edDenNgay);
-        Button btnThongke = view.findViewById(R.id.btnDoanhThu);
-        TextView tvKetQua = view.findViewById(R.id.tvKetQua);
-
-        Calendar calendar = Calendar.getInstance();
-
-        edtStart.setOnClickListener(new View.OnClickListener() {
+        edTuNgay = v.findViewById(R.id.edTuNgay);
+        edDenNgay = v.findViewById(R.id.edDenNgay);
+        tvDoanhThu = v.findViewById(R.id.tvDoanhThu);
+        btnTuNgay = v.findViewById(R.id.btnTuNgay);
+        btnDenNgay = v.findViewById(R.id.btnDenNgay);
+        btnDoanhThu = v.findViewById(R.id.btnDoanhThu);
+        btnTuNgay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        getContext(),
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                String ngay = "";
-                                String thang = "";
-                                if (dayOfMonth < 10){
-                                    ngay = "0" + dayOfMonth;
-                                }else {
-                                    ngay = String.valueOf(dayOfMonth);
-                                }
-                                if ((month + 1) < 10){
-                                    thang = "0" + (month + 1);
-                                }else {
-                                    thang = String.valueOf((month + 1));
-                                }
-                                edtStart.setText(thang + "/" + ngay + "/" + year);
-                            }
-                        },
-                        calendar.get(Calendar.YEAR),
-                        calendar.get(Calendar.MONTH),
-                        calendar.get(Calendar.DAY_OF_MONTH)
-                );
-                datePickerDialog.show();
+                Calendar c = Calendar.getInstance();
+                mYear = c.get(Calendar.YEAR);
+                mMonth = c.get(Calendar.MONTH);
+                mDay = c.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog d = new DatePickerDialog(getActivity(),0,mDateTuNgay,mYear,mMonth,mDay);
+                d.show();
             }
         });
-        edtEnd.setOnClickListener(new View.OnClickListener() {
+        btnDenNgay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        getContext(),
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                String ngay = "";
-                                String thang = "";
-                                if (dayOfMonth < 10){
-                                    ngay = "0" + dayOfMonth;
-                                }else {
-                                    ngay = String.valueOf(dayOfMonth);
-                                }
-                                if ((month + 1) < 10){
-                                    thang = "0" + (month + 1);
-                                }else {
-                                    thang = String.valueOf((month + 1));
-                                }
-                                edtEnd.setText(thang + "/" + ngay + "/" + year);
-                            }
-                        },
-                        calendar.get(Calendar.YEAR),
-                        calendar.get(Calendar.MONTH),
-                        calendar.get(Calendar.DAY_OF_MONTH)
-                );
-                datePickerDialog.show();
+                Calendar c = Calendar.getInstance();
+                mYear = c.get(Calendar.YEAR);
+                mMonth = c.get(Calendar.MONTH);
+                mDay = c.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog d = new DatePickerDialog(getActivity(),0,mDateDenNgay,mYear,mMonth,mDay);
+                d.show();
             }
         });
-        btnThongke.setOnClickListener(new View.OnClickListener() {
+        btnDoanhThu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DoanhThuDao doanhThuDao = new DoanhThuDao(getContext());
-                String ngaybatdau = edtStart.getText().toString();
-                String ngayketthuc = edtEnd.getText().toString();
-                int doanhthu = doanhThuDao.getDoanhThu(ngaybatdau, ngayketthuc);
-                tvKetQua.setText(doanhthu + "VND");
+                String tuNgay = edTuNgay.getText().toString();
+                String denNgay = edDenNgay.getText().toString();
+                DonHangDao donHangDao = new DonHangDao(getActivity());
+                tvDoanhThu.setText("Doanh Thu: "+donHangDao.getDoanhThu(tuNgay,denNgay)+ "VND");
             }
         });
-        return view;
+        return v;
     }
+    DatePickerDialog.OnDateSetListener mDateTuNgay = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+            mYear = year;
+            mMonth = month;
+            mDay = dayOfMonth;
+            GregorianCalendar c = new GregorianCalendar(mYear,mMonth,mDay);
+            edTuNgay.setText(sdf.format(c.getTime()));
+        }
+    };
+    DatePickerDialog.OnDateSetListener mDateDenNgay = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+            mYear = year;
+            mMonth = month;
+            mDay = dayOfMonth;
+            GregorianCalendar c = new GregorianCalendar(mYear,mMonth,mDay);
+            edDenNgay.setText(sdf.format(c.getTime()));
+        }
+    };
 }

@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class Dbhelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "MYSTORE";
-    public static final int DB_VERSION = 19;
+    public static final int DB_VERSION = 20;
 
     public Dbhelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -58,7 +58,7 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "tensp text references SANPHAM(tensp), " +
                 "giasp integer references SANPHAM(giasp), " +
                 "soluongban integer references SANPHAM(soluongban), " +
-                "ngay text not null, " +
+                "ngay date not null, " +
                 "tongtien integer not null, " +
                 "trangthai text not null) ";
         db.execSQL(createTableDonhang);
@@ -68,7 +68,7 @@ public class Dbhelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO LOAIHANG VALUES(1, 'Bánh', 300, 50)");
         db.execSQL("INSERT INTO SANPHAM VALUES(1, 'Solite',25000, 1, 10)");
         db.execSQL("INSERT INTO KHACHHANG VALUES('kh1', 'Nguyễn Văn A','1999',0678935789, '123')");
-        db.execSQL("INSERT INTO DONHANG VALUES(1, 1, 'Solite', 25000, 1, '12/1/2023', 25000, 'Da giao hang'), (2, 1, 'Solite', 25000, 2, '12/1/2023', 50000, 'Da giao hang')");
+        db.execSQL("INSERT INTO DONHANG VALUES(1, 1, 'Solite', 25000, 1, '2023/12/02', 25000, 'Da giao hang'), (2, 1, 'Solite', 25000, 2, '2023/12/02', 50000, 'Da giao hang')");
 
     }
 

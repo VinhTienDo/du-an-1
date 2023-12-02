@@ -100,14 +100,7 @@
         android:textStyle="bold"
         android:text="Doanh thu:"
         android:layout_marginTop="20dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1000vnd"
-        android:textSize="24sp"
-        android:id="@+id/tvKetQua"
-        android:layout_gravity="center"
-        android:textColor="#FF0000"/>
+
 
 
 </LinearLayout>

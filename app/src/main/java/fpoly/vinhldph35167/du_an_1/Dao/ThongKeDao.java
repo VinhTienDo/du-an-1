@@ -13,18 +13,15 @@ import fpoly.vinhldph35167.du_an_1.Database.Dbhelper;
 import fpoly.vinhldph35167.du_an_1.Model.SanPham;
 import fpoly.vinhldph35167.du_an_1.Model.Top;
 
-public class DonHangDao {
+public class ThongKeDao {
     private SQLiteDatabase db;
     private Context context;
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-
-    public DonHangDao(Context context) {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    public ThongKeDao(Context context){
         this.context = context;
-        Dbhelper dbHelper = new Dbhelper(context);
-        db = dbHelper.getWritableDatabase();
+        Dbhelper dbhelper = new Dbhelper(context);
+        db = dbhelper.getWritableDatabase();
     }
-
-    //    Top
     @SuppressLint("Range")
     public List<Top> getTop() {
         String sqlTop = "SELECT masp,count(masp) as soLuongban FROM DONHANG GROUP BY masp ORDER BY soLuongban DESC LIMIT 10";
@@ -41,17 +38,15 @@ public class DonHangDao {
         }
         return list;
     }
-
-    //    Doanh thu
     @SuppressLint("Range")
-    public int getDoanhThu(String tuNgay, String denNgay) {
+    public int getDoanhThu(String tuNgay, String denNgay){
         String sqlDoanhThu = "SELECT SUM(tongtien) as doanhthu FROM DONHANG WHERE ngay BETWEEN ? AND ?";
         List<Integer> list = new ArrayList<Integer>();
         Cursor cursor = db.rawQuery(sqlDoanhThu, new String[]{tuNgay, denNgay});
-        while (cursor.moveToNext()) {
+        while (cursor.moveToNext()){
             try {
                 list.add(Integer.parseInt(cursor.getString(cursor.getColumnIndex("doanhthu"))));
-            } catch (Exception e) {
+            }catch (Exception e){
                 list.add(0);
             }
         }
