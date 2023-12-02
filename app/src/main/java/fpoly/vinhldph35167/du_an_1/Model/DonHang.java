@@ -1,16 +1,18 @@
 package fpoly.vinhldph35167.du_an_1.Model;
 
+import java.util.Date;
+
 public class DonHang {
     private int madh;
     private int masp;
     private String tensp;
     private int gia;
     private int soluongban;
-    private String ngay;
+    private Date ngay;
     private int tongtien;
     private String trangThai;
 
-    public DonHang(int madh, int masp, String tensp, int gia, int soluongban,String ngay, int tongtien, String trangThai) {
+    public DonHang(int madh, int masp, String tensp, int gia, int soluongban,Date ngay, int tongtien, String trangThai) {
         this.madh = madh;
         this.masp = masp;
         this.tensp = tensp;
@@ -29,11 +31,11 @@ public class DonHang {
         this.tongtien = tongtien;
     }
 
-    public String getNgay() {
+    public Date getNgay() {
         return ngay;
     }
 
-    public void setNgay(String ngay) {
+    public void setNgay(Date ngay) {
         this.ngay = ngay;
     }
 
