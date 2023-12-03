@@ -3,8 +3,11 @@
     <group android:checkableBehavior="single">
         <item android:title="Danh mục">
             <menu>
+                <item android:id="@+id/nav_TrangChu"
+                    android:icon="@drawable/ic_home"
+                    android:title="Trang Chủ"/>
         <item android:id="@+id/nav_NhanVien"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/ic_customer"
             android:title="Quản lý Nhân Viên"/>
         <item android:id="@+id/nav_KhachHang"
             android:icon="@drawable/ic_home"
@@ -16,7 +19,7 @@
             android:icon="@drawable/ic_books"
             android:title="Quản lý Sản Phẩm"/>
         <item android:id="@+id/nav_DonHang"
-            android:icon="@drawable/ic_customer"
+            android:icon="@drawable/danhsachsp"
             android:title="Quản lý Đơn Hàng"/>
             </menu>
     </item>

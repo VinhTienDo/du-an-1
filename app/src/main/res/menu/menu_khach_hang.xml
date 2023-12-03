@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/TrangChu"
+        android:title="Trang Chủ "
+        android:icon="@drawable/ic_home"
+        />
     <item android:id="@+id/Xem_SanPham"
         android:title="Xem danh sách sản phẩm "
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/danhsachsp"
         />
 
     <item android:id="@+id/Xem_GioHang"

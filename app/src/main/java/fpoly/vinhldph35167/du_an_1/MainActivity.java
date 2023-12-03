@@ -70,8 +70,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
-                if (item.getItemId() == R.id.nav_DonHang){
+                if (item.getItemId() == R.id.nav_DonHang) {
                     fragment = new fragment_don_hang();
+                } else if (item.getItemId() == R.id.nav_TrangChu) {
+                    Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
                 } else if (item.getItemId() == R.id.sub_AddCustomer) {
                     fragment = new fragment_khach_hang();
                 } else if (item.getItemId() == R.id.nav_SanPham) {

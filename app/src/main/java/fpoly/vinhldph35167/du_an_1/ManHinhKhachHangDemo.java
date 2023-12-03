@@ -57,6 +57,10 @@ public class ManHinhKhachHangDemo extends AppCompatActivity {
                 if (item.getItemId() == R.id.Xem_SanPham) {
                     fragment = new frg_xem_sp();
                     Toast.makeText(getApplicationContext(), "Xem danh sách sản phẩm", Toast.LENGTH_SHORT).show();
+                } else if (item.getItemId() == R.id.TrangChu) {
+                    Intent intent = new Intent(ManHinhKhachHangDemo.this, ManHinhKhachHangDemo.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
                 } else if (item.getItemId() == R.id.Xem_GioHang) {
                     fragment = new frg_gio_hang();
                     Toast.makeText(getApplicationContext(), "Giỏ hàng", Toast.LENGTH_SHORT).show();
