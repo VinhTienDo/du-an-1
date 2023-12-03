@@ -2,19 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/Xem_SanPham"
         android:title="Xem danh sách sản phẩm "
+        android:icon="@drawable/ic_home"
         />
 
     <item android:id="@+id/Xem_GioHang"
         android:title="Xem giỏ hàng "
+        android:icon="@drawable/giohang"
         />
 
     <item android:id="@+id/Xem_DonHang"
         android:title="Xem đơn hàng "
+        android:icon="@drawable/ic_catebook"
         />
     <item android:title="Thống kê">
         <menu>
             <item android:id="@+id/Top10_KH"
                 android:title="Top 10 sản phẩm được mua nhiều nhất"
+                android:icon="@drawable/ic_top"
                 />
         </menu>
     </item>
@@ -22,9 +26,11 @@
         <menu>
             <item android:id="@+id/DoiMk_KH"
                 android:title="Đổi mật khẩu "
+                android:icon="@drawable/ic_pass"
                 />
             <item android:id="@+id/LogOut_KH"
                 android:title="Đăng xuất"
+                android:icon="@drawable/ic_logout"
                 />
         </menu>
     </item>
