@@ -12,8 +12,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:drawableStart="@drawable/search"/>
+        android:layout_marginRight="20dp" />
 
 
 
@@ -21,23 +20,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <ImageView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/tvTenSpDHdia"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/book1"
-            android:layout_marginLeft="20dp"/>
-        <Spinner
-        android:id="@+id/spDonHang"
+            android:drawableStart="@drawable/calendar"
+            android:hint=" Tên Sản Phẩm: "
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="5dp"/>
+    </LinearLayout>
+    <EditText
+        android:id="@+id/tvNgayDHdia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableStart="@drawable/calendar"
+        android:hint=" Ngày: "
         android:layout_marginBottom="20dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginRight="5dp"/>
-    </LinearLayout>
-    <CheckBox
-        android:id="@+id/chkShipHang"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/tvGiaDHdia"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Đã ship hàng"
+        android:drawableStart="@drawable/money"
+        android:hint=" Giá: "
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="5dp"/>
+    <EditText
+        android:id="@+id/tvSoLuongDHdia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/calendar"
+        android:hint=" Số Lượng: "
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="5dp"/>
+    <EditText
+        android:id="@+id/tvTrangThaiDHdia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/calendar"
+        android:hint=" Trạng Thái: "
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="5dp"/>
@@ -47,7 +72,7 @@
         android:orientation="horizontal"
         android:layout_margin="1dp">
         <Button
-            android:id="@+id/btnSavePM"
+            android:id="@+id/btnSaveDH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lưu"
@@ -57,19 +82,9 @@
             android:layout_weight="1"
             android:layout_margin="10dp"/>
 
-        <Button
-            android:id="@+id/btnUpdatePM"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sửa"
-            android:drawableStart="@drawable/update"
-            android:backgroundTint="#CDDC39"
-            android:layout_marginHorizontal="0dp"
-            android:layout_weight="1"
-            android:layout_margin="10dp"/>
 
         <Button
-            android:id="@+id/btnCancelPM"
+            android:id="@+id/btnCancelDH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#F44336"

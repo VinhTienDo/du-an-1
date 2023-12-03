@@ -12,7 +12,10 @@ public class DonHang {
     private int tongtien;
     private String trangThai;
 
-    public DonHang(int madh, int masp, String tensp, int gia, int soluongban,Date ngay, int tongtien, String trangThai) {
+    public DonHang() {
+    }
+
+    public DonHang(int madh, int masp, String tensp, int gia, int soluongban, Date ngay, int tongtien, String trangThai) {
         this.madh = madh;
         this.masp = masp;
         this.tensp = tensp;

@@ -26,6 +26,7 @@ public class KhachHangDao {
 
     public long insert(KhachHang obj){
         ContentValues values = new ContentValues();
+        values.put("makh", obj.getMakh());
         values.put("hoten", obj.getHoten());
         values.put("namsinh", obj.getNamsinh());
         values.put("sodienthoai", obj.getSodienthoai());
@@ -34,6 +35,7 @@ public class KhachHangDao {
     }
     public long update(KhachHang obj){
         ContentValues values = new ContentValues();
+        values.put("makh", obj.getMakh());
         values.put("hoten",obj.getHoten());
         values.put("namsinh",obj.getNamsinh());
         values.put("sodienthoai",obj.getSodienthoai());
@@ -57,7 +59,7 @@ return db.update("KHACHHANG",values, "makh=?", new String[]{String.valueOf(obj.g
         Cursor cursor= db.rawQuery(sql, selectionArgs);
         while (cursor.moveToNext()){
             KhachHang obj = new KhachHang();
-            obj.setMakh(Integer.parseInt(cursor.getString(cursor.getColumnIndex("makh"))));
+            obj.setMakh(cursor.getString(cursor.getColumnIndex("makh")));
             obj.setHoten(cursor.getString(cursor.getColumnIndex("hoten")));
             obj.setNamsinh(cursor.getString(cursor.getColumnIndex("namsinh")));
             obj.setSodienthoai(Integer.parseInt(cursor.getString(cursor.getColumnIndex("sodienthoai"))));

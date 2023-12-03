@@ -1,13 +1,13 @@
 package fpoly.vinhldph35167.du_an_1.Model;
 
 public class KhachHang {
-    private int makh;
+    private String makh;
     private String hoten;
     private String namsinh;
     private int sodienthoai;
     private String password;
 
-    public KhachHang(int makh, String hoten, String password) {
+    public KhachHang(String makh, String hoten, String password) {
         this.makh = makh;
         this.hoten = hoten;
         this.password = password;
@@ -21,7 +21,7 @@ public class KhachHang {
         this.password = password;
     }
 
-    public KhachHang(int makh, String hoten, String namsinh, int sodienthoai, String password) {
+    public KhachHang(String makh, String hoten, String namsinh, int sodienthoai, String password) {
         this.makh = makh;
         this.hoten = hoten;
         this.namsinh = namsinh;
@@ -29,14 +29,21 @@ public class KhachHang {
         this.password = password;
     }
 
+    public KhachHang(String makh, String hoten, String namsinh, int sodienthoai) {
+        this.makh = makh;
+        this.hoten = hoten;
+        this.namsinh = namsinh;
+        this.sodienthoai = sodienthoai;
+    }
+
     public KhachHang() {
     }
 
-    public int getMakh() {
+    public String getMakh() {
         return makh;
     }
 
-    public void setMakh(int makh) {
+    public void setMakh(String makh) {
         this.makh = makh;
     }
 

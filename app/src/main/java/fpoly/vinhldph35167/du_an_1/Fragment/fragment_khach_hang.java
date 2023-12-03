@@ -113,7 +113,7 @@ KhachHang item;
         btnCancelKH = dialog.findViewById(R.id.btnCancelKH);
         btnSaveKH = dialog.findViewById(R.id.btnSaveKh);
 
-        edMaKH.setEnabled(false);
+
         if (type != 0){
             edMaKH.setText(String.valueOf(item.getMakh()));
             edTenKH.setText(item.getHoten());
@@ -130,6 +130,7 @@ KhachHang item;
             @Override
             public void onClick(View v) {
                 item = new KhachHang();
+                item.setMakh(edMaKH.getText().toString());
                 item.setHoten(edTenKH.getText().toString());
                 item.setNamsinh(edNamSinhKH.getText().toString());
                 item.setSodienthoai(Integer.parseInt(edSdtKH.getText().toString()));
@@ -141,7 +142,7 @@ KhachHang item;
                             Toast.makeText(context, "Thêm thất bại", Toast.LENGTH_SHORT).show();
                         }
                     }else {
-                        item.setMakh(Integer.parseInt(edMaKH.getText().toString()));
+                        item.setMakh(String.valueOf(edMaKH.getText().toString()));
                         if (dao.update(item)>0){
                             Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
                         }else {
@@ -157,7 +158,7 @@ KhachHang item;
     }
     public int validate(){
         int check = 1;
-        if (edTenKH.getText().length() == 0 || edSdtKH.getText().length() == 0 || edNamSinhKH.getText().length() ==0){
+        if (edMaKH.getText().length() == 0 || edTenKH.getText().length() == 0 || edSdtKH.getText().length() == 0 || edNamSinhKH.getText().length() ==0){
             Toast.makeText(getContext(), "Bạn phải nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
             check = -1;
         }
