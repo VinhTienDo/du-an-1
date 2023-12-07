@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         imageList = new ArrayList<>();
         imageList.add(R.drawable.banner1);
         imageList.add(R.drawable.banner2);
-        imageList.add(R.drawable.banner1);
+        imageList.add(R.drawable.banner3);
 
         handler = new Handler();
         runnable = new Runnable() {
