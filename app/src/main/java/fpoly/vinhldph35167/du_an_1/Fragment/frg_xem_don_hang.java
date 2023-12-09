@@ -1,5 +1,6 @@
 package fpoly.vinhldph35167.du_an_1.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -23,5 +24,7 @@ public class frg_xem_don_hang extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_frg_xem_don_hang, container, false);
+
+
     }
 }

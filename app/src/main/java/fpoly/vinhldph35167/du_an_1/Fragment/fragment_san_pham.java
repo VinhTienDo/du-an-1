@@ -4,6 +4,7 @@ import static android.app.Activity.RESULT_OK;
 import static java.lang.Integer.parseInt;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
@@ -86,11 +87,13 @@ public class fragment_san_pham extends Fragment {
     EditText edMasp, edTensp, edGiasp, edSoluongban;
     Spinner spinner;
     Button btnSave, btnCancel;
+    Activity activity;
 
     LoaiHangSpinnerAdapter spinnerAdapter;
     ArrayList<Loaihang> listLoaiHang;
     LoaiHangDao loaiHangDao;
     Loaihang loaihang;
+    SanPhamDao dao;
     int maloaiHang, position;
     private SearchView searchView;
 
@@ -141,7 +144,7 @@ public class fragment_san_pham extends Fragment {
             @Override
             public void onClick(View v) {
                 item = new SanPham();
-                Toast.makeText(getContext(), "Kkkk", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
                 openDialog(getActivity(), 0, item);
             }
         });
@@ -159,7 +162,7 @@ public class fragment_san_pham extends Fragment {
 
     void capNhatLv() {
         list = (ArrayList<SanPham>) sanPhamDao.getAll();
-        adapter = new SanPhamAdapter(getActivity(), this, list);
+        adapter = new SanPhamAdapter(getContext(), list,getActivity(), dao);
         lvSanPham.setAdapter(adapter);
     }
 
@@ -303,7 +306,7 @@ public class fragment_san_pham extends Fragment {
                 listSearch.add(sanPham);
             }
         }
-        adapter = new SanPhamAdapter(getActivity(), this, listSearch);
+        adapter = new SanPhamAdapter(getContext(),list, getActivity(), dao );
         lvSanPham.setAdapter(adapter);
 
     }

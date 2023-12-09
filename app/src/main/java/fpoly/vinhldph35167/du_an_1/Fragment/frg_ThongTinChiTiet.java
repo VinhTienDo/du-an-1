@@ -61,9 +61,6 @@ LoaiHangDao lhDao;
         View view = inflater.inflate(R.layout.fragment_frg__thong_tin_chi_tiet, container, false);
 
         requireActivity().findViewById(R.id.nvView).setVisibility(View.GONE);
-
-        NumberFormat numberFormat = NumberFormat.getNumberInstance();
-
         toolbar = view.findViewById(R.id.toolbarSanPham);
 
         AppCompatActivity appCompatActivity= (AppCompatActivity) getActivity();
@@ -96,6 +93,7 @@ LoaiHangDao lhDao;
 
         // Inflate the layout for this fragment
         return view;
+
 
     }
 

@@ -1,6 +1,8 @@
 package fpoly.vinhldph35167.du_an_1.Model;
 
-public class SanPham {
+import java.io.Serializable;
+
+public class SanPham implements Serializable {
     private int masp;
     private String tensp;
     private int giasp;
