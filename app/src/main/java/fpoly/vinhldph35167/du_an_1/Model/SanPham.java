@@ -6,21 +6,20 @@ public class SanPham {
     private int giasp;
     private int maloai;
     private int soluongban;
-
-
+    private String mota;
+    private int khoHang;
 
     public SanPham() {
     }
 
-
-
-
-    public SanPham(int masp, String tensp, int giasp, int maloai, int soluongban) {
+    public SanPham(int masp, String tensp, int giasp, int maloai, int soluongban, String mota, int khoHang) {
         this.masp = masp;
         this.tensp = tensp;
         this.giasp = giasp;
         this.maloai = maloai;
         this.soluongban = soluongban;
+        this.mota = mota;
+        this.khoHang = khoHang;
     }
 
     public int getMasp() {
@@ -61,5 +60,21 @@ public class SanPham {
 
     public void setSoluongban(int soluongban) {
         this.soluongban = soluongban;
+    }
+
+    public String getMota() {
+        return mota;
+    }
+
+    public void setMota(String mota) {
+        this.mota = mota;
+    }
+
+    public int getKhoHang() {
+        return khoHang;
+    }
+
+    public void setKhoHang(int khoHang) {
+        this.khoHang = khoHang;
     }
 }
