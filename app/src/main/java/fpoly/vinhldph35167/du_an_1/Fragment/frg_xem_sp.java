@@ -44,6 +44,7 @@ public class frg_xem_sp extends Fragment {
 
         return v;
     }
+
     void capNhatLv() {
         list = (ArrayList<SanPham>) sanPhamDao.getAll();
         adapter = new SanPhamAdapter(getContext(), list,getActivity(), sanPhamDao);
