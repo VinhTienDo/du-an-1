@@ -5,10 +5,12 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -41,6 +43,13 @@ public class frg_xem_sp extends Fragment {
         lvXemSanPham = v.findViewById(R.id.lvXemSanPham);
         sanPhamDao = new SanPhamDao(getActivity());
         capNhatLv();
+
+        lvXemSanPham.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(getContext(),frg_ThongTinChiTiet.class));
+            }
+        });
 
         return v;
     }
