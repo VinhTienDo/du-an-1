@@ -32,6 +32,14 @@ public class NhanVien {
         this.password = password;
     }
 
+    public NhanVien(String manv, String hoten, int sodienthoai, String namsinh) {
+        this.manv = manv;
+        this.hoten = hoten;
+        this.sodienthoai = sodienthoai;
+        this.namsinh = namsinh;
+
+    }
+
     public String getManv() {
         return manv;
     }

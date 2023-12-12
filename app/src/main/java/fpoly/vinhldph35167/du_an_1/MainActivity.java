@@ -72,22 +72,31 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment = null;
                 if (item.getItemId() == R.id.nav_DonHang){
                     fragment = new fragment_don_hang();
+                    imageView.setVisibility(View.GONE);
                 } else if (item.getItemId() == R.id.sub_AddCustomer) {
                     fragment = new fragment_khach_hang();
+                    imageView.setVisibility(View.GONE);
                 } else if (item.getItemId() == R.id.nav_SanPham) {
                     fragment = new fragment_san_pham();
+                    imageView.setVisibility(View.GONE);
                 } else if (item.getItemId() == R.id.nav_NhanVien) {
                     fragment = new fragment_nhan_vien();
+                    imageView.setVisibility(View.GONE);
                 } else if (item.getItemId() == R.id.nav_KhachHang) {
                     fragment = new fragment_khach_hang();
+                    imageView.setVisibility(View.GONE);
                 } else if (item.getItemId() == R.id.nav_LoaiHang) {
                     fragment = new fragment_loai_hang();
+                    imageView.setVisibility(View.GONE);
                 }else if (item.getItemId() == R.id.sub_DoanhThu){
                     fragment = new fragment_doanh_thu();
+                    imageView.setVisibility(View.GONE);
                 } else if (item.getItemId() == R.id.sub_Pass) {
                     fragment = new fragment_change_pass();
+                    imageView.setVisibility(View.GONE);
                 } else if (item.getItemId() == R.id.sub_Top) {
                     fragment = new fragment_top();
+                    imageView.setVisibility(View.GONE);
                 } else if (item.getItemId() == R.id.sub_Logout) {
                     Intent intent = new Intent(MainActivity.this, ChucVu.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
