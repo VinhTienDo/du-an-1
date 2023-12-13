@@ -89,28 +89,28 @@ public class SanPhamAdapter extends ArrayAdapter<SanPham> {
                 fragment.xoa(String.valueOf(item.getMasp()));
             }
         });
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                open(item);
-            }
-        });
+//        v.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                open(item);
+//            }
+//        });
 
         return v;
     }
-    private void open(final SanPham sanpham){
-        Bundle bundle= new Bundle();
-        bundle.putSerializable("SanPhamChiTiet", sanpham);
-        frg_ThongTinChiTiet frgThongTinChiTiet= new frg_ThongTinChiTiet();
-        frgThongTinChiTiet.setArguments(bundle);
-
-        if( activity instanceof FragmentActivity){
-            FragmentActivity fragmentActivity = (FragmentActivity) activity;
-            FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.flContent, frgThongTinChiTiet);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-        }
-    }
+//    private void open(final SanPham sanpham){
+//        Bundle bundle= new Bundle();
+//        bundle.putSerializable("SanPhamChiTiet", sanpham);
+//        frg_ThongTinChiTiet frgThongTinChiTiet= new frg_ThongTinChiTiet();
+//        frgThongTinChiTiet.setArguments(bundle);
+//
+//        if( activity instanceof FragmentActivity){
+//            FragmentActivity fragmentActivity = (FragmentActivity) activity;
+//            FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
+//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//            fragmentTransaction.replace(R.id.flContent, frgThongTinChiTiet);
+//            fragmentTransaction.addToBackStack(null);
+//            fragmentTransaction.commit();
+//        }
+//    }
 }
